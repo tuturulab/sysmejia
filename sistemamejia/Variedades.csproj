@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69F553DF-5B9A-43CD-B243-70F56E24CD6A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Variedades</RootNamespace>
+    <AssemblyName>Variedades</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.9.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.9.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9cfaf01297a008f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome5.1.0.12\lib\net40\FontAwesome5.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome5.WPF, Version=1.0.12.93, Culture=neutral, PublicKeyToken=9cfaf01297a008f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome5.1.0.12\lib\net40\FontAwesome5.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Business\BusinessContext.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903281737135_initial-v3.cs" />
+    <Compile Include="Migrations\201903281737135_initial-v3.Designer.cs">
+      <DependentUpon>201903281737135_initial-v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903300701355_hotfix-import.cs" />
+    <Compile Include="Migrations\201903300701355_hotfix-import.Designer.cs">
+      <DependentUpon>201903300701355_hotfix-import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903301747218_ImportacionProductos.cs" />
+    <Compile Include="Migrations\201903301747218_ImportacionProductos.Designer.cs">
+      <DependentUpon>201903301747218_ImportacionProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903301823126_ImportacionProductos2.cs" />
+    <Compile Include="Migrations\201903301823126_ImportacionProductos2.Designer.cs">
+      <DependentUpon>201903301823126_ImportacionProductos2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302105144_ImportacionProductos3.cs" />
+    <Compile Include="Migrations\201903302105144_ImportacionProductos3.Designer.cs">
+      <DependentUpon>201903302105144_ImportacionProductos3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302248307_estadoProveedor.cs" />
+    <Compile Include="Migrations\201903302248307_estadoProveedor.Designer.cs">
+      <DependentUpon>201903302248307_estadoProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302254360_estadoProveedor2.cs" />
+    <Compile Include="Migrations\201903302254360_estadoProveedor2.Designer.cs">
+      <DependentUpon>201903302254360_estadoProveedor2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302356046_estadoProveedor3.cs" />
+    <Compile Include="Migrations\201903302356046_estadoProveedor3.Designer.cs">
+      <DependentUpon>201903302356046_estadoProveedor3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904060321597_EstadoEncargo.cs" />
+    <Compile Include="Migrations\201904060321597_EstadoEncargo.Designer.cs">
+      <DependentUpon>201904060321597_EstadoEncargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904090301296_fixing-updates-change.cs" />
+    <Compile Include="Migrations\201904090301296_fixing-updates-change.Designer.cs">
+      <DependentUpon>201904090301296_fixing-updates-change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904101413435_cascade-deletes.cs" />
+    <Compile Include="Migrations\201904101413435_cascade-deletes.Designer.cs">
+      <DependentUpon>201904101413435_cascade-deletes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904110214529_nullable-product-garantia.cs" />
+    <Compile Include="Migrations\201904110214529_nullable-product-garantia.Designer.cs">
+      <DependentUpon>201904110214529_nullable-product-garantia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904110444264_makefechaspago-nullables.cs" />
+    <Compile Include="Migrations\201904110444264_makefechaspago-nullables.Designer.cs">
+      <DependentUpon>201904110444264_makefechaspago-nullables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904111651314_ChangeCascade.cs" />
+    <Compile Include="Migrations\201904111651314_ChangeCascade.Designer.cs">
+      <DependentUpon>201904111651314_ChangeCascade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904111657086_ChangeCascade2.cs" />
+    <Compile Include="Migrations\201904111657086_ChangeCascade2.Designer.cs">
+      <DependentUpon>201904111657086_ChangeCascade2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131859410_userAccounts.cs" />
+    <Compile Include="Migrations\201905131859410_userAccounts.Designer.cs">
+      <DependentUpon>201905131859410_userAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905140244191_userName.cs" />
+    <Compile Include="Migrations\201905140244191_userName.Designer.cs">
+      <DependentUpon>201905140244191_userName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906100318062_tools.cs" />
+    <Compile Include="Migrations\201906100318062_tools.Designer.cs">
+      <DependentUpon>201906100318062_tools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906112344399_addUserCode.cs" />
+    <Compile Include="Migrations\201906112344399_addUserCode.Designer.cs">
+      <DependentUpon>201906112344399_addUserCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ProductoEnVenta.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\CrearCuentaWindow.xaml.cs">
+      <DependentUpon>CrearCuentaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetalleImportacionWindow.xaml.cs">
+      <DependentUpon>DetalleImportacionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Especificacion_pedido.cs" />
+    <Compile Include="Models\Especificacion_producto.cs" />
+    <Compile Include="Models\Pago.cs" />
+    <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\DetalleProveedor.cs" />
+    <Compile Include="Models\Producto_importado.cs" />
+    <Compile Include="Models\Proveedor.cs" />
+    <Compile Include="Models\Proveedor_producto.cs" />
+    <Compile Include="Models\Telefono.cs" />
+    <Compile Include="Models\Variedades.Context.cs" />
+    <Compile Include="Models\Venta.cs" />
+    <Compile Include="Utils\GridLengthAnimation.cs" />
+    <Compile Include="Utils\Paging.cs" />
+    <Compile Include="Utils\RelayCommand.cs" />
+    <Compile Include="ViewModels\PageViewModel.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ViewModels\StatictisModel.cs" />
+    <Compile Include="Views\AddToExistentProductWindow.xaml.cs">
+      <DependentUpon>AddToExistentProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AgregarPagoWindow.xaml.cs">
+      <DependentUpon>AgregarPagoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetallePedidoWindow.xaml.cs">
+      <DependentUpon>DetallePedidoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetalleProductWindow.xaml.cs">
+      <DependentUpon>DetalleProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetalleVentaWindow.xaml.cs">
+      <DependentUpon>DetalleVentaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditClienteWindow.xaml.cs">
+      <DependentUpon>EditClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditProductWindow.xaml.cs">
+      <DependentUpon>EditProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiUsesClienteWindow.xaml.cs">
+      <DependentUpon>MultiUsesClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiUsesImportacionWindow.xaml.cs">
+      <DependentUpon>MultiUsesImportacionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiUsesPedidoWindow.xaml.cs">
+      <DependentUpon>MultiUsesPedidoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiUsesProductoWindow.xaml.cs">
+      <DependentUpon>MultiUsesProductoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiUsesVentaWindow.xaml.cs">
+      <DependentUpon>MultiUsesVentaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageClientes.xaml.cs">
+      <DependentUpon>PageClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageEstadisticas.xaml.cs">
+      <DependentUpon>PageEstadisticas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageImportaciones.xaml.cs">
+      <DependentUpon>PageImportaciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PagePedidos.xaml.cs">
+      <DependentUpon>PagePedidos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageProducts.xaml.cs">
+      <DependentUpon>PageProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageVentas.xaml.cs">
+      <DependentUpon>PageVentas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProveedorWindow.xaml.cs">
+      <DependentUpon>AddProveedorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectClientWindow.xaml.cs">
+      <DependentUpon>SelectClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectPedidoWindow.xaml.cs">
+      <DependentUpon>SelectPedidoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectProductWindow.xaml.cs">
+      <DependentUpon>SelectProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectProveedorWindow.xaml.cs">
+      <DependentUpon>SelectProveedorWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\GenericStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrearCuentaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetalleImportacionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddToExistentProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AgregarPagoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetallePedidoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetalleProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetalleVentaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiUsesClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiUsesImportacionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiUsesPedidoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiUsesProductoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiUsesVentaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageEstadisticas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageImportaciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PagePedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProveedorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectPedidoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectProveedorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201903281737135_initial-v3.resx">
+      <DependentUpon>201903281737135_initial-v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903300701355_hotfix-import.resx">
+      <DependentUpon>201903300701355_hotfix-import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903301747218_ImportacionProductos.resx">
+      <DependentUpon>201903301747218_ImportacionProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903301823126_ImportacionProductos2.resx">
+      <DependentUpon>201903301823126_ImportacionProductos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302105144_ImportacionProductos3.resx">
+      <DependentUpon>201903302105144_ImportacionProductos3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302248307_estadoProveedor.resx">
+      <DependentUpon>201903302248307_estadoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302254360_estadoProveedor2.resx">
+      <DependentUpon>201903302254360_estadoProveedor2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302356046_estadoProveedor3.resx">
+      <DependentUpon>201903302356046_estadoProveedor3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904060321597_EstadoEncargo.resx">
+      <DependentUpon>201904060321597_EstadoEncargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904090301296_fixing-updates-change.resx">
+      <DependentUpon>201904090301296_fixing-updates-change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904101413435_cascade-deletes.resx">
+      <DependentUpon>201904101413435_cascade-deletes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110214529_nullable-product-garantia.resx">
+      <DependentUpon>201904110214529_nullable-product-garantia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110444264_makefechaspago-nullables.resx">
+      <DependentUpon>201904110444264_makefechaspago-nullables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904111651314_ChangeCascade.resx">
+      <DependentUpon>201904111651314_ChangeCascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904111657086_ChangeCascade2.resx">
+      <DependentUpon>201904111657086_ChangeCascade2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131859410_userAccounts.resx">
+      <DependentUpon>201905131859410_userAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905140244191_userName.resx">
+      <DependentUpon>201905140244191_userName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906100318062_tools.resx">
+      <DependentUpon>201906100318062_tools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112344399_addUserCode.resx">
+      <DependentUpon>201906112344399_addUserCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Assets\Manual.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="connections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logoMin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\icono.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChromeCustom\ChromeCustom.csproj">
+      <Project>{b5be6272-502a-452a-b8ba-10f1cac4bf80}</Project>
+      <Name>ChromeCustom</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

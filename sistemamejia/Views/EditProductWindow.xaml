@@ -1,0 +1,286 @@
+﻿<Window x:Class="Variedades.Views.EditProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Variedades.Views"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Height="700" Width="620">
+    <Grid>
+
+        <StackPanel Background="white">
+
+            <DockPanel Background="{StaticResource ColorPrimario}"  Margin="0,0,0,10">
+                <TextBlock Name="WindowTitle" Foreground="White" Padding="5,15,15,15" VerticalAlignment="Center" Text="Editar producto" FontSize="17" ></TextBlock>
+            </DockPanel>
+
+            <StackPanel Margin="10,10,10,5">
+                <DockPanel Margin="0,10,0,10">
+                    <TextBlock VerticalAlignment="Center" Text="Marca" Width="100px"></TextBlock>
+                    <TextBox VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left" Width="420" Height="30" Name="MarcaTextBox" Margin="30,0,0,0"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,10,0,10">
+                    <TextBlock VerticalAlignment="Center" Text="Modelo" Width="100px"></TextBlock>
+                    <TextBox VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left" Width="420" Height="30" Name="ModeloTextBox" Margin="30,0,0,0"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,10,0,10">
+                    <TextBlock VerticalAlignment="Center" Text="Precio de Venta" Width="100px"></TextBlock>
+                    <TextBox PreviewTextInput="TextBoxNumerico" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left" Width="80" Height="30" Name="PrecioTextBox" Margin="30,0,0,0"/>
+
+
+
+                    <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Text="Credito" Width="40px"></TextBlock>
+                    <ComboBox DropDownClosed="OnComboBoxImeiSelect" Width="50" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left" Name="ComboBoxCredito">
+                        <ComboBoxItem FontSize="16">Si</ComboBoxItem>
+                        <ComboBoxItem FontSize="16">No</ComboBoxItem>
+                    </ComboBox>
+
+
+                    <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Text="Imei" Width="30px"></TextBlock>
+
+                    <ComboBox DropDownClosed="OnComboBoxImeiSelect" Width="50" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left" Name="ComboBoxImei">
+                        <ComboBoxItem FontSize="16">Si</ComboBoxItem>
+                        <ComboBoxItem FontSize="16">No</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Text="Garantia" Width="50px"></TextBlock>
+
+                    <ComboBox DropDownClosed="OnComboBoxImeiSelect" Width="50" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left" Name="ComboBoxGarantia">
+                        <ComboBoxItem FontSize="16">Si</ComboBoxItem>
+                        <ComboBoxItem FontSize="16">No</ComboBoxItem>
+                    </ComboBox>
+
+
+                </DockPanel>
+
+                <DockPanel Margin="0,10,0,10">
+                    <TextBlock VerticalAlignment="Center" Text="Tipo de producto" Width="100px"></TextBlock>
+                    <ComboBox DropDownClosed="CategoriaComboBox_SelectionChanged" Width="420" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Height="30" Margin="30,0,0,0" Name="CategoriaComboBox">
+                        <ComboBoxItem>Celular</ComboBoxItem>
+                        <ComboBoxItem>Tablet</ComboBoxItem>
+                        <ComboBoxItem>Laptop</ComboBoxItem>
+                        <ComboBoxItem>Accesorio</ComboBoxItem>
+                        <ComboBoxItem>Otro</ComboBoxItem>
+                    </ComboBox>
+
+                </DockPanel>
+
+                <DockPanel Name="PanelGarantia" Visibility="Hidden" Margin="0,10,0,0">
+                    <TextBlock HorizontalAlignment="Left" PreviewTextInput="TextBoxNumerico" Visibility="Visible" Margin="0,0,0,0" Name="TxtGarantiaVenta" VerticalAlignment="Center" Text="Garantía de venta (N# de Meses)" Width="190px"></TextBlock>
+                    <TextBox PreviewTextInput="TextBoxNumerico" Visibility="Visible"  VerticalAlignment="Center" Name="TextBoxGarantiaVenta" FontSize="20" HorizontalAlignment="Left" Width="330" Height="30" Margin="30,0,20,0"/>
+                </DockPanel>
+
+                <DockPanel Visibility="Hidden" Name="PanelImei" Margin="0,10,0,0">
+
+                    <StackPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"  Name="TxtProveedor" VerticalAlignment="Center" Text="Proveedor" Width="100px" ></TextBlock>
+                            <TextBox IsReadOnly="True" Visibility="Visible"  VerticalAlignment="Center" Name="TextBoxProveedor" FontSize="20" HorizontalAlignment="Left" Width="140" Height="30" Margin="30,0,20,0"/>
+                        </DockPanel>
+
+
+                        <DockPanel Margin="0,10,0,0">
+                            <TextBlock HorizontalAlignment="Left" Visibility="Visible" Margin="0,0,0,0" Name="TxtCantidad" VerticalAlignment="Center" Text="Cantidad" Width="100px"></TextBlock>
+                            <TextBox Visibility="Visible" PreviewTextInput="TextBoxNumerico" VerticalAlignment="Center" Name="TextBoxCantidad" FontSize="20" HorizontalAlignment="Left" Width="140" Height="30" Margin="30,0,20,0"/>
+                        </DockPanel>
+
+
+                    </StackPanel>
+
+
+
+                    <StackPanel>
+                        <Button Name="IngresarButton" Click="SelectProveedorClick" BorderBrush="{x:Null}" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,10"  VerticalAlignment="Center" Width="120px" Content="Proveedor Existente"  Height="30px">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="{StaticResource ColorBotones}" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource ColorBotonesPresionados}"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <Button Click="CreateProveedorClick"  Name="NuevoButton" BorderBrush="{x:Null}" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0"  VerticalAlignment="Center" Width="120px" Content="Crear Proveedor"  Height="30px">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="{StaticResource ColorBotones}" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource ColorBotonesPresionados}"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+
+
+                    </StackPanel>
+
+                </DockPanel>
+
+
+                <DockPanel Height="170">
+                    <DataGrid SelectedItem="{Binding SelectedEspecificacionProductoInProductoWindow, Mode=TwoWay}" DataGridCell.GotFocus="DataGrid_CellGotFocus"  Visibility="Hidden" Name="ProductosDatagrid" Margin="10,10,10,10" VirtualizingPanel.VirtualizationMode="Recycling" HeadersVisibility="Column" AutoGenerateColumns="False" EnableRowVirtualization="True" EnableColumnVirtualization="True"  CanUserReorderColumns="True" CanUserResizeColumns="True"  CanUserResizeRows="True" CanUserSortColumns="True" 
+                    AlternatingRowBackground="Gainsboro" CanUserAddRows="False" CanUserDeleteRows="False" IsSynchronizedWithCurrentItem="True">
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn x:Name="ImeiColumn" Binding="{Binding IMEI, IsAsync=True}" Header="IMEI" Width="3*" ></DataGridTextColumn>
+                            <DataGridTextColumn x:Name="Precio_CostoColumn" Binding="{Binding PrecioCosto, IsAsync=True}" Header="Precio Costo" Width="3*"></DataGridTextColumn>
+                            <DataGridTextColumn x:Name="Descripcion_Column" Binding="{Binding Descripcion, IsAsync=True}" Header="Descripcion" Width="3*"></DataGridTextColumn>
+                            <DataGridTextColumn x:Name="Garantia_Column" Binding="{Binding Garantia, IsAsync=True}" Header="Garantia" Width="3*"></DataGridTextColumn>
+                            <!--
+                                                        <DataGridTemplateColumn Header="Imei" x:Name="ImeiColumn" Width="2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Imei}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox PreviewTextInput="TextBoxNumerico" Text="{Binding Imei}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Precio Original" x:Name="Precio_Costo_Columns" Width="2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Precio_Costo}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox PreviewTextInput="TextBoxNumerico" Text="{Binding Precio_Costo}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn x:Name="DescricionColumn" Binding="{Binding Descripcion, IsAsync=True}" Header="Descripción" Width="3*" ></DataGridTextColumn>
+                            <DataGridTextColumn x:Name="ProveedorColumn" IsReadOnly="True" Binding="{Binding Proveedor, IsAsync=True}" Header="Proveedor" Width="2*" ></DataGridTextColumn>
+
+                            <DataGridTemplateColumn x:Name="GarantiaColumn" Width="4*" Header="Garantía Original" SortMemberPath="NextRun">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <wpfx:DateTimePicker  Value="{Binding Garantia, 
+                                             UpdateSourceTrigger=PropertyChanged, 
+                                             Mode=TwoWay}" 
+                                            Format="Custom" 
+                                            FormatString="M/d/yyyy" 
+                                            Height="Auto" 
+                                            HorizontalAlignment="Left" 
+                                            Width="120"
+                                            IsEnabled="True" 
+                                            x:Name="dateTimePicker1" >
+                                        </wpfx:DateTimePicker>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Eliminar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                        x:Name="btnBorrar"
+                                        Width="35"
+                                        Height="15"
+                                        FontSize="8"
+                                        Foreground="White"
+                                        Margin="2"
+                                        Content="Borrar"
+                                        Click="BtnBorrarClick"
+                                        BorderBrush="{x:Null}"
+                                            >
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}">
+                                                    <Setter Property="Background" Value="#dc4636" />
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <Border Background="{TemplateBinding Background}">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#ad1e0f"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+
+                                                </Style>
+                                            </Button.Style>
+
+
+
+                                        </Button>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            -->
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+
+                <Button Visibility="Hidden" Name="UpdateButton" Click="BtnActualizarProducto" BorderBrush="{x:Null}" Foreground="White" HorizontalAlignment="Center" Margin="0,30,0,0"  VerticalAlignment="Center" Width="130px" Content="Actualizar Producto"  Height="40px">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{StaticResource ColorBotones}" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource ColorBotonesPresionados}"/>
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
