@@ -8,7 +8,9 @@
         Icon="./Assets/icono.ico"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
-        mc:Ignorable="d"
+         xmlns:vconverters="clr-namespace:Variedades.ValueConverters"
+    xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"    
+    mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Title="Variedades Mejía" Height="500" Width="1100">
@@ -45,13 +47,18 @@
             </Grid.RowDefinitions>
 
             <Grid>
-                <Button Style="{StaticResource ImageButtonStyle}" Click="Button_Click">
+                <Button Style="{StaticResource ImageButtonStyle}" Command="{Binding HomeCommand}">
                     <Image Margin="5,5,5,5" Source="./Assets/logo.png" />
                 </Button>
             </Grid>
 
             <!--Sidebar Items-->
-            <ListView Name="SidebarItems" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" BorderThickness="0" Background="{StaticResource ColorSidebar}" Grid.Row="1" Foreground="White" >
+            <ListView x:Name="ListViewModules" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" BorderThickness="0" Background="{StaticResource ColorSidebar}" Grid.Row="1" Foreground="White" >
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="SelectionChanged">
+                        <ie:InvokeCommandAction Command="{Binding SelectedItemChangedModulesCommand}" CommandParameter="{Binding ElementName=ListViewModules}" />
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Style.Triggers>
@@ -139,10 +146,11 @@
                 <Grid Grid.Row="1"  Background="#ecf0f1">
                     <!--Contenido-->
                     <Frame
-                    x:Name="ContentMain"
+                    x:Name="MainFrame"
                     Grid.Column="1" Grid.Row="0"
                     Grid.RowSpan="8"
-                    NavigationUIVisibility="Hidden"/>
+                    NavigationUIVisibility="Hidden"
+                    Content="{Binding CurrentPage, Converter={vconverters:ApplicationPageValueConverter}}"/>
 
                 </Grid>
             </Border>

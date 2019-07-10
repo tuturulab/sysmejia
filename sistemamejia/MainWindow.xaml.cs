@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using Variedades.Models;
+using Variedades.ViewModels;
 
 namespace Variedades
 {
@@ -26,45 +27,46 @@ namespace Variedades
     /// </summary>
     public partial class MainWindow : SWWindow
     {
-        public PageViewModel MainViewModel;
-        public User thisUser;
+        //public PageViewModel MainViewModel;
+        //public User thisUser;
 
-
-        public MainWindow(PageViewModel viewModel, User user)
+        public MainWindow()
         {
             InitializeComponent();
+            WindowViewModel vm = new WindowViewModel();
+            DataContext = vm;
             //Instantiate Viewmodel
-            MainViewModel = viewModel;
-            DataContext = MainViewModel;
+            //MainViewModel = viewModel;
+            //DataContext = MainViewModel;
 
-            thisUser = user;
+            //thisUser = user;
 
-            using(var context = new DbmejiaEntities())
-            {
-                try
-                {
-                    context.Database.Connection.Open();
-                    context.Database.Connection.Close();
-                }
-                catch(SqlException)
-                {
-                    MessageBox.Show("Verifica tus servicios de base de datos");
-                    this.Close();
-                }
-            }
+            //using(var context = new DbmejiaEntities())
+            //{
+            //    try
+            //    {
+            //        context.Database.Connection.Open();
+            //        context.Database.Connection.Close();
+            //    }
+            //    catch(SqlException)
+            //    {
+            //        MessageBox.Show("Verifica tus servicios de base de datos");
+            //        this.Close();
+            //    }
+            //}
 
-            //Pagina Inicial
-            //var PaginaEstadisticas = new Views.PageEstadisticas();
-            ContentMain.Navigate(new Pages.HomePage());
+            ////Pagina Inicial
+            ////var PaginaEstadisticas = new Views.PageEstadisticas();
+            //ContentMain.Navigate(new Pages.HomePage());
         }
 
         private void BtnOpenManual(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            string file = System.IO.Path.Combine(Environment.CurrentDirectory, @"Manual.pdf");
+            //System.Diagnostics.Process process = new System.Diagnostics.Process();
+            //string file = System.IO.Path.Combine(Environment.CurrentDirectory, @"Manual.pdf");
                 
-            process.StartInfo.FileName = file;
-            process.Start();   
+            //process.StartInfo.FileName = file;
+            //process.Start();   
         }
 
         //Hide and show sidebar menu
@@ -111,53 +113,48 @@ namespace Variedades
         //Change content usercontrol from sidebar menu
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Change usercontrol 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "ItemClients":
-                    MainViewModel.UpdateClients(10);
-                    var PaginaClientes = new Views.PageClientes(MainViewModel);
-                    ContentMain.Navigate(PaginaClientes);
-                    break;
+            ////Change usercontrol 
+            //switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            //{
+            //    case "ItemClients":
+            //        MainViewModel.UpdateClients(10);
+            //        var PaginaClientes = new Views.PageClientes(MainViewModel);
+            //        ContentMain.Navigate(PaginaClientes);
+            //        break;
 
-                case "ItemProducts":
-                    MainViewModel.UpdateProducts(10);
-                    var PaginaProductos = new Views.PageProducts(MainViewModel, thisUser);
-                    ContentMain.Navigate(PaginaProductos);
-                    break;
+            //    case "ItemProducts":
+            //        MainViewModel.UpdateProducts(10);
+            //        var PaginaProductos = new Views.PageProducts(MainViewModel, thisUser);
+            //        ContentMain.Navigate(PaginaProductos);
+            //        break;
 
-                case "ItemSales":
-                    MainViewModel.UpdateVentas(10);
-                    var PaginaVentas = new Views.PageVentas (MainViewModel);
-                    ContentMain.Navigate(PaginaVentas);
-                    break;
+            //    case "ItemSales":
+            //        MainViewModel.UpdateVentas(10);
+            //        var PaginaVentas = new Views.PageVentas (MainViewModel);
+            //        ContentMain.Navigate(PaginaVentas);
+            //        break;
 
-                case "ItemImports":
-                    MainViewModel.UpdateImportacion(10);
-                    var PaginaImportaciones = new Views.PageImportaciones(MainViewModel, thisUser) ;
-                    ContentMain.Navigate(PaginaImportaciones);
-                    break;
+            //    case "ItemImports":
+            //        MainViewModel.UpdateImportacion(10);
+            //        var PaginaImportaciones = new Views.PageImportaciones(MainViewModel, thisUser) ;
+            //        ContentMain.Navigate(PaginaImportaciones);
+            //        break;
 
-                case "ItemPedidos":
-                    MainViewModel.UpdatePedido(10);
-                    var PaginaPedidos = new Views.PagePedidos(MainViewModel , thisUser);
-                    ContentMain.Navigate(PaginaPedidos);
-                    break;
+            //    case "ItemPedidos":
+            //        MainViewModel.UpdatePedido(10);
+            //        var PaginaPedidos = new Views.PagePedidos(MainViewModel , thisUser);
+            //        ContentMain.Navigate(PaginaPedidos);
+            //        break;
 
 
-                case "ItemStats":
+            //    case "ItemStats":
 
-                    ContentMain.Navigate(new Views.PageEstadisticas());
-                    break;
+            //        ContentMain.Navigate(new Views.PageEstadisticas());
+            //        break;
 
-                default:
-                    break;
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ContentMain.Navigate(new Pages.HomePage());
+            //    default:
+            //        break;
+            //}
         }
     }
 }

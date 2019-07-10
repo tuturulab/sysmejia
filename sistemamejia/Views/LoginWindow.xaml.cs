@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Variedades.ViewModels;
+using Variedades.ViewModels.Base;
 using Variedades.Views;
 
 namespace Variedades.Views
@@ -20,26 +22,41 @@ namespace Variedades.Views
     /// <summary>
     /// Lógica de interacción para LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : SWWindow
+    public partial class LoginWindow : SWWindow, IHavePassword
     {
-        MainWindow mainWindow;
-        public PageViewModel MainViewModel;
-        CrearCuentaWindow createAccWindow;
+        //MainWindow mainWindow;
+        //public PageViewModel MainViewModel;
+        //CrearCuentaWindow createAccWindow;
 
         public LoginWindow()
         {
             InitializeComponent();
-            MainViewModel = new PageViewModel();
-            DataContext = MainViewModel;
+            LoginViewModel vm = new LoginViewModel();
+            DataContext = vm;
 
-             bool firstExecution = MainViewModel.CheckIfAccountsExist();
+            if(vm.OpenMainWindow == null)
+            {
+                vm.OpenMainWindow = new Action(() =>
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    Close();
+                });
+            }
 
-             if (firstExecution == false)
-             {
-                 CreateFirstAccout();
-             }
+            //MainViewModel = new PageViewModel();
+            //DataContext = MainViewModel;
+
+            // bool firstExecution = MainViewModel.CheckIfAccountsExist();
+
+            // if (firstExecution == false)
+            // {
+            //     CreateFirstAccout();
+            // }
 
         }
+
+        public SecureString SecurePassword => PasswordText.SecurePassword;
 
         // Hidde maximize button - Temporal fix
         // Try to figure out whty if i put the same code in the constructor does not work
@@ -53,10 +70,10 @@ namespace Variedades.Views
 
         private void CreateFirstAccout ()
         {
-            createAccWindow = new CrearCuentaWindow(MainViewModel, true);
+            //createAccWindow = new CrearCuentaWindow(MainViewModel, true);
 
-            createAccWindow.Show();
-            this.Close();
+            //createAccWindow.Show();
+            //this.Close();
 
         }
 
@@ -64,25 +81,25 @@ namespace Variedades.Views
         private void LoginButton(object sender, RoutedEventArgs e)
         {
 
-            var user = MainViewModel.Login(UserTextBox.Text, PassTextBox.Password);
+            //var user = MainViewModel.Login(UserTextBox.Text, PassTextBox.Password);
             
-            if (user != null)
-            {
-                //Iniciamos la ventana de crear un producto
-                mainWindow = new MainWindow(MainViewModel, user);
+            //if (user != null)
+            //{
+            //    //Iniciamos la ventana de crear un producto
+            //    mainWindow = new MainWindow(MainViewModel, user);
 
-                //Abrimos
-                mainWindow.Show();
-                this.Close();
-            }
+            //    //Abrimos
+            //    mainWindow.Show();
+            //    this.Close();
+            //}
 
-            else
-            {
-                MessageBoxResult result = MessageBox.Show("Datos Incorrectos, por favor intente nuevamente",
-                                                  "Confirmation",
-                                                  MessageBoxButton.OK,
-                                                  MessageBoxImage.Exclamation);
-            }
+            //else
+            //{
+            //    MessageBoxResult result = MessageBox.Show("Datos Incorrectos, por favor intente nuevamente",
+            //                                      "Confirmation",
+            //                                      MessageBoxButton.OK,
+            //                                      MessageBoxImage.Exclamation);
+            //}
 
         }
     }
