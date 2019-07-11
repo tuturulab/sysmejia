@@ -215,6 +215,7 @@
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BoolAwesomeToVisibility.cs" />
     <Compile Include="ValueConverters\BoolSessionButtonToVisibility.cs" />
+    <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="ViewModels\Base\IHavePassword.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PageProductsViewModel.cs" />
@@ -315,6 +316,9 @@
     </Compile>
     <Compile Include="Views\SelectProveedorWindow.xaml.cs">
       <DependentUpon>SelectProveedorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddProductWindow.xaml.cs">
+      <DependentUpon>AddProductWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -433,6 +437,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectProveedorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

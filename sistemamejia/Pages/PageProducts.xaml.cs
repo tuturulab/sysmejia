@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Variedades.ViewModels;
+using Variedades.Windows;
 
 namespace Variedades.Pages
 {
@@ -40,6 +41,15 @@ namespace Variedades.Pages
             InitializeComponent();
             PageProductsViewModel vm = new PageProductsViewModel();
             DataContext = vm;
+
+            if(vm.OpenAddProductAction == null)
+            {
+                vm.OpenAddProductAction = new Action(() =>
+                {
+                    AddProductWindow addProductWindow = new AddProductWindow();
+                    addProductWindow.Show();
+                });
+            }
 
             ////Obtener el viewmodel de la ventana principal y lo incializamos
             //ViewModel = pageViewModel;

@@ -33,6 +33,18 @@ namespace Variedades.ViewModels
             set { SetProperty(ref _SelectedProduct, value); }
         }
 
+        #region Actions
+
+        public Action OpenAddProductAction { get; set; }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand OpenAddProductWindowCommand { get; set; }
+
+        #endregion
+
 
         public PageProductsViewModel()
         {
@@ -44,6 +56,12 @@ namespace Variedades.ViewModels
 
 
             //Init commands
+            OpenAddProductWindowCommand = new DelegateCommand(OpenAddWindow);
+        }
+
+        public void OpenAddWindow()
+        {
+            OpenAddProductAction?.Invoke();
         }
 
         public void LoadData()
